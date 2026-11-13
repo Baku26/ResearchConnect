@@ -1,0 +1,71 @@
+//@Author AndrewB
+
+import java.util.*;
+import java.util.random;
+import java.util.ArrayList;
+
+public class ResearchConnect {
+	
+	public static void main(String[] args) {
+		String[] poolOfTopics = {
+				
+				"Machine Learning", "Cybersecurity", "Data Mining", "Human-Computer Interaction",
+	            "Quantum Computing", "Cloud Computing", "Blockchain", "Computer Vision",
+	            "Natural Language Processing", "Bioinformatics", "Robotics", "Software Engineering",
+	            "Database Systems", "Computer Networks", "Distributed Systems", "Artificial Intelligence",
+	            "Internet of Things", "Augmented Reality", "Virtual Reality", "Embedded Systems",
+	            "Cryptography", "Big Data Analytics", "Wireless Networks", "Mobile Computing",
+	            "Game Development", "Compilers", "Operating Systems", "Parallel Computing",
+	            "Computational Geometry", "Graph Theory", "Digital Forensics", "Network Security",
+	            "Deep Learning", "Reinforcement Learning", "Edge Computing", "Autonomous Vehicles",
+	            "Formal Methods", "Humanoid Robotics", "Semantic Web", "Information Retrieval",
+	            "Computer Graphics", "Image Processing", "Ubiquitous Computing", "Wearable Tech",
+	            "Hardware Security", "Cloud Security", "Agile Methodologies", "DevOps",
+	            "Neural Networks", "Optimization Algorithms"
+				
+		};
+		Random ran = new Random();
+		List<FacultyRecord> facultyList = new ArrayList<>();
+		List<StudentRecord> studentList = new ArrayList<>();
+		
+		// generate 100 faculty profiles using arraylist 
+		for(int i = 1; i <= 100; i++) {
+			int numKeywords = 3 + ran.nextInt(3);
+			while (keywords.size() < numKeywords) {
+				String topic = poolOfTopics[ran.nextInt(poolOfTopics.length)];
+			if(!keywords.contains(topic)) keywords.add(topic);
+			
+			}
+			facultyList.add(new FacultyRecord("f" + i, "faculty prof " + i, "CS dept", keywords , 3));
+			
+			
+			}
+		// generate 500 student profiles using array lists
+		for(int i = 1; i <= 500; i++) {
+			List<String> keywords = new ArrayList<>();
+			int numKeywords = 2 + ran.nextInt(3);
+			while(keywords.size() < numKeywords) {
+				String topic = poolOfTopics[ran.nextInt(poolOfTopics.length)];
+			if(!keywords.contains(topic)) keywords.add(topic);
+			
+			}
+			studentList.add(new StudentRecord("s" + i, "computer science", keywords));
+			
+		}
+		MentorshipCoordinator coordinator = new MentorshipCoordinator();
+		
+		System.out.println("Proccessing inital student matches ...\n");
+		coordinator.processStudentMatching(StudentList.get(0), facultyList);
+		coordinator.processStudentMatching(StudentList.get(1), facultyList);
+		coordinator.processStudentMatching(StudentList.get(2), facultyList);
+		System.out.println("--------------------------------------\n");
+        
+		System.out.println("testing stack undo function");
+		coordinator.undoLastAssignment();
+		coordinator.undoLastAssignment();
+		
+		System.out.println("Proccessing another matching batch");
+		coordinator.proccesStudentMatching(studentList.get(3), facultyList);
+	}
+	
+	}
