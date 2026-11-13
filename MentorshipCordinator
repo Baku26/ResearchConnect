@@ -1,0 +1,79 @@
+//@Author AndrewB
+
+public class MentorshipCordinator {
+	// stack to maintain matching history
+	
+	private Stack<AssignmentLog> assignmentHistory = new Stack<>();
+	
+	public double calculateMatchScore(StudentRecord student, FacultyRecord faculty) {
+		Set<String> union = new HashSet<>(student.researchKeywords);
+		union.addAll(faculty.researchKeyWords);
+		
+		if(union.isEmpty()) {
+			return 0.0;
+			
+		Set<String> intersection = new HashSet<>(student.researchKeyWords);
+		intersection.retainAll(faculty.researchKeywords);
+		
+		return (double) intersection.size() / union.size();
+		
+ 		}
+		public void processStudentMatching(StudentRecord student, List<FacultyRecord> allFaculty) {
+			List<MatchResult> candidates = new ArrayList<>(); 
+	
+	for(FacutlyRecord fauclty : allFaculty) {
+		double score = calculateMathScore(student, faculty);
+	if(score > 0) {
+		candidates.add(new MatchResult(faculty, score));
+	if(candidates.isEmpty()) {
+		System.out.println("x no matching interest found for student: " + student.name);
+	    return;
+	    
+	    
+	}
+	// sort the arraylist in match score 
+	
+	candidates.sort(a, b) -> Double.compare(b.matchScore, a.matchScore));
+	// evaluate matches in descending order
+	
+	for(MatchResult match : candidates) {
+		FacultyRecord targetFaculty = match.faculty;
+		
+		if(targetFaculty.assignedStudentIds.size() < targetFacutly.maxCapacity) {
+			targetFaculty.assignedStudentIds.add(student.studentId);
+			
+			//push successful assignment onto the 
+		//stack
+			
+			assignmentHistory.push(new AssignmentLog(student, targetFaculty));
+			
+			System.out.printf("Match: %s is tied with %s (score: %.2f)%n", student.name, targetfaculty.name , match.matchScore);
+			return;
+			
+		}
+	}
+	System.out.println("all matching faculty options are full for students " + student.name);
+	
+	}
+	// pop the stack to undo the very last matching operations
+	public void undoLastAssignment() {
+		if(assignmentHistory.isEmpty()) {
+			System.out.println("no past assignments left to do");
+			return; 
+			
+			// revert the last action
+			
+		}
+		AssignmentLog lastAction = assignmentHistory.pop();
+		FacultyRecord faculty = lastAction.faculty;
+		StudentRecord student = lastAction.student;
+		 
+		// revert the action
+		faculty.assignedStudentIds.remove(student.studentId);
+		System.out.printf(" undo successful: removed %s from %'s roaster.%n", student.name, faculty.name);
+	
+	}
+	}
+		}
+		
+	
