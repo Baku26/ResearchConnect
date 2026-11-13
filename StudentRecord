@@ -1,0 +1,16 @@
+//Author AndrewB
+
+public class StudentRecord {
+	String studentId;
+	String name;
+	String major;
+	List<String> researchKeywords;
+	
+	public StudentRecords(String studentId, String name, String major,List<String> keywords ) {
+		this.studentId = studentId;
+		this.name = name;
+		this.major = major;
+		this.researchKeywords = keywords;
+		
+	}
+}
