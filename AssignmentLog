@@ -1,0 +1,12 @@
+//@Author AndrewB
+
+public class AssignmentLog {
+	StudentRecord student;
+	FacultyRecord facutly;
+	
+	public AssignmentLog(StudentRecord student, FacultyRecord faculty) {
+		this.student = student;
+		this.faculty = faculty;
+		
+	}
+}
