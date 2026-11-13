@@ -1,0 +1,17 @@
+//@Author AndrewB
+import java.util.Stack;
+import java.util.List;
+import java.util.ArrayList;
+
+public class MatchResult implements Comparable<MatchResult> {
+	FacultyRecord faculty;
+	double matchScore;
+	
+	public MatchResult(FacultyRecord faculty, double matchScore) {
+        this.faculty = faculty;
+        this.matchScore = matchScore;
+        
+       
+	}
+}
+	
