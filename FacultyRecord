@@ -1,0 +1,19 @@
+public class FacultyRecord {
+	String facultyId;
+	String name;
+	String department;
+	List<String>researchKeywords;
+	int maxCapacity;
+	List<String>assignedStudentIds;
+	
+	public FacultyRecord(String facultyId, String name, String department, List<String> keywords, int maxCapacity) {
+		this.facultyId = facultyId;
+		this.name = name; 
+		this.department = department;
+		this.researchKeywords = keywords;
+		this.maxCapacity = maxCapacity;
+		this.assignedStudentIds = new ArrayList<>();
+		
+	}
+	
+}
